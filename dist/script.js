@@ -1,3 +1,4 @@
+//JS for Home Page
 gsap.registerPlugin(ScrollTrigger);
 
 // Banner Big Image
@@ -240,4 +241,100 @@ gsap.to(".CTA, .boxed", {
     end: "bottom",
     markers: false
   }
+});
+
+//JS for Multimedia Page
+gsap.registerPlugin(ScrollTrigger);
+
+
+// Banner Big Text
+gsap.to(".initialcap", {
+  duration: 1.5,
+  scale: 2,
+  delay: 0.5,
+  transformOrigin: "top left",
+  ease: "power2.inOut",
+  yoyo: true,
+  repeat: 1,
+  repeatRefresh: true
+});
+
+// Banner Design Text
+gsap.to(".name", {
+  delay: 1,
+  opacity: 0
+});
+gsap.to(".name", {
+  delay: 1.5,
+  left: "-100vw"
+});
+gsap.to(".name", {
+  delay: 3,
+  duration: 1.8,
+  left: 0,
+  opacity: 1
+});
+
+//JS for Innovation Page
+gsap.registerPlugin(ScrollTrigger);
+
+
+// Banner Big Text
+gsap.to(".initialcap", {
+  duration: 1.5,
+  scale: 2,
+  delay: 0.5,
+  transformOrigin: "top left",
+  ease: "power2.inOut",
+  yoyo: true,
+  repeat: 1,
+  repeatRefresh: true
+});
+
+// Banner Design Text
+gsap.to(".name", {
+  delay: 1,
+  opacity: 0
+});
+gsap.to(".name", {
+  delay: 1.5,
+  left: "-100vw"
+});
+gsap.to(".name", {
+  delay: 3,
+  duration: 1.8,
+  left: 0,
+  opacity: 1
+});
+
+//JS for Resume Page
+gsap.registerPlugin(ScrollTrigger);
+
+
+// Banner Big Text
+gsap.to(".initialcap", {
+  duration: 1.5,
+  scale: 2,
+  delay: 0.5,
+  transformOrigin: "top left",
+  ease: "power2.inOut",
+  yoyo: true,
+  repeat: 1,
+  repeatRefresh: true
+});
+
+// Banner Design Text
+gsap.to(".name", {
+  delay: 1,
+  opacity: 0
+});
+gsap.to(".name", {
+  delay: 1.5,
+  left: "-100vw"
+});
+gsap.to(".name", {
+  delay: 3,
+  duration: 1.8,
+  left: 0,
+  opacity: 1
 });
