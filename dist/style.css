@@ -1,3 +1,4 @@
+/*CSS for Home Page */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600&family=Righteous&display=swap");
 
 .debug {
@@ -316,6 +317,1158 @@ footer {
   display: flex;
   gap: 20%;
   margin-bottom: 100px;
+}
+footer ul {
+  margin-top: 2em;
+}
+footer li {
+  display: flex;
+  align-items: center;
+  height: 3lh;
+  gap: 2em;
+}
+footer li svg {
+  width: 2em;
+}
+
+.CTA {
+  background: var(--warm_gray);
+  padding: 50px;
+}
+.CTA h3 {
+  font-size: clamp(36px, 5vw, 64px);
+  text-transform: uppercase;
+  margin-bottom: 0.5lh;
+}
+
+/*  EFFECTS */
+/* image boxes to outline photos */
+.boxed {
+  display: block;
+  position: relative;
+}
+.boxed::before {
+  left: 15px;
+  top: -20px;
+  position: absolute;
+  content: "";
+  border: 2px solid;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+/* quick mobile hacks/tweaks… */
+@media screen and (max-width: 400px){
+
+  nav ul{
+    display: block;
+    margin-top: 1em;
+  }
+  h2{
+    overflow: hidden;
+  }
+  section{display:block; padding: 0 10px;}
+  .Banner h1 span{
+    display: none;
+  }
+  .Banner h1{
+    font-size: 60px;
+    margin: .5em 0;
+  }
+  footer{
+    display: block;
+  }
+}
+
+/* CSS for Multimedia Page*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600&family=Righteous&display=swap");
+
+.debug {
+  outline: 3px solid red;
+  outline-offset: -4px;
+}
+
+/* simple reset rules */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ol,
+ul {
+  list-style-type: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/*  Global COLOR NAMES*/
+:root {
+  --black: #000;
+  --white: #fff;
+  --lite_text: #ccc;
+  --dark_text: #333;
+  --cool_gray: #e8e8e8;
+  --warm_gray: #f2f1f0;
+  --rose: #c79288;
+}
+
+/* color theme tools…  */
+.lite {
+  background: white;
+  color: var(--dark_text);
+}
+.lite .boxed::before {
+  color: var(--rose);
+}
+
+.dark {
+  background: black;
+  color: var(--lite_text);
+}
+.dark .boxed::before {
+  color: var(--white);
+}
+
+/* main "grid" layout */
+section {
+  position: relative;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: minmax(60px, auto) repeat(2, minmax(250px, 600px)) minmax(60px,auto);
+  /* same idea: |-|-----|-----|-| skinny edges and 2-column center, just more "responsive" for various screen sizes*/
+  align-items: center;
+}
+
+/* section grid tools…  */
+section .full {
+  grid-column: 2 / -2;
+}
+section .left {
+  grid-column: 2 / 3;
+}
+section .right {
+  grid-column: 3 / -2;
+}
+
+/* Overall Typography */
+body {
+  font-family: "Poppins";
+  font-weight: 400;
+}
+p {
+  margin-bottom: 1.5em;
+  font-size: clamp(12px, 2vw, 18px);
+  line-height: 1.5;
+}
+h2 {
+  opacity: 0.1;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.05em;
+  font-size: clamp(110px, 15vw, 250px);
+  line-height: 0.7;
+}
+h4 {
+  font-size: 32px;
+  font-weight: 600;
+}
+a {
+  text-decoration: none;
+  color: var(--dark_text);
+}
+
+/* links and buttons  */
+.btn {
+  padding: 1em 1.5em;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--white);
+  background-color: var(--rose);
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.15s;
+  user-select: none;
+}
+.btn::before {
+  left: 6px;
+  top: 6px;
+  position: absolute;
+  content: "";
+  border: 1px solid var(--rose);
+  height: 100%;
+  width: 100%;
+  transition: all 0.15s;
+  z-index: -1;
+}
+.btn:hover::before {
+  top: 0;
+  left: 0;
+}
+.btn:hover,
+.btn:focus {
+  color: var(--white);
+}
+.btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+.btn svg.arrow {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+a{
+  color: var(--rose);
+}
+a:hover{
+  color: var(--white);
+}
+
+/*  nav bar - flexbox for layout stuck to top of screen with position fixed! push the first section after the nav down so it's not covered by the menubar */
+nav,
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  background: black;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 99;
+}
+nav ul {
+  align-items: center;
+}
+nav a {
+  padding-left: 40px;
+  color: white;
+  font-size: 16px;
+  -webkit-transition: all 0.2s ease-in;
+}
+nav a:hover {
+  color: var(--rose);
+}
+nav + section {
+  margin-top: 80px;
+}
+
+/* DESIGN DETAILS - for each section */
+.Banner {
+  min-height: 50dvh;
+}
+.Banner img {
+  opacity: 0.6;
+}
+.Banner h1 {
+  position: relative;
+  color: var(--white);
+  font-size: 104px;
+  white-space: nowrap;
+  z-index: 1;
+}
+.Banner em {
+  display: block;
+  font-size: clamp(12px, 2vw, 18px);
+  margin-top: 2em;
+}
+.Banner .initialcap {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transform: translate(-35%, -35%);
+  font-family: "Poppins";
+  font-size: 339px;
+  font-weight: 400;
+  background: #fff
+    top center no-repeat;
+
+  background-size: contain;
+  background-position: center;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.4);
+}
+
+/*Photos Section*/
+.Photos{
+  margin-bottom:50px;
+  margin-top:25px;
+}
+
+/*Palestine Photos*/
+.palestine{
+  margin-top:25px;
+  margin-bottom:50px;
+}
+
+.children{
+  list-style-type:none;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:25px;
+}
+
+.children > li {
+  flex-basis: 350px; /* width: 350px; */
+  list-style-type:none;
+}
+
+.children li img {
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+.march{
+  list-style-type:none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  gap: 10px;
+  margin-bottom:25px;
+}
+
+.march > li {
+  height: 300px;
+  position: relative;
+}
+
+.march li img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+
+/*OHSU Photos*/
+.OHSU{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.OHSU > li {
+  flex-basis: 350px; /* width: 350px; */
+  list-style-type:none;
+}
+
+.OHSU li img {
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+figcaption {
+  align-self: flex-end;
+  width: 23vw;
+  margin-top:10px;
+  font-size: 5px;
+}
+
+/*Eid Photos*/
+.eid{
+  list-style-type:none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  gap: 10px;
+}
+
+.eid > li {
+  height: 300px;
+  position: relative;
+}
+
+.eid li img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+/* Video Section*/
+.Video{
+  color:white;
+  background-color:black;
+  padding:45px;
+  margin-bottom:50px;
+}
+
+.video{
+  display:flex;
+  justify-content:center;
+  padding:20px;
+}
+
+.blurb{
+  text-align:center;
+  padding-right:150px;
+  padding-left:150px;
+}
+
+.header{
+  margin:25px;
+}
+
+/*Articles*/
+.feature {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.feature > li {
+  flex-basis: 350px; /* width: 350px; */
+  list-style-type:none;
+}
+
+.feature li img {
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+figcaption {
+  align-self: flex-end;
+  width: 23vw;
+  margin-top:10px;
+  font-size: 5px;
+}
+
+.news {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.news > li {
+  flex-basis: 350px; /* width: 350px; */
+  list-style-type:none;
+}
+
+.news li img {
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+/*TEDx/Events Start*/
+.events{
+  padding-top:25px;
+  padding-bottom:50px;
+}
+
+.tedx{
+  list-style-type:none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  gap: 10px;
+}
+
+.tedx > li {
+  height: 300px;
+  position: relative;
+}
+
+.tedx li img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+/* Contact bottom footer section and a "CTA" Call To Action card design */
+footer {
+  display: flex;
+  gap: 20%;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+footer ul {
+  margin-top: 2em;
+}
+footer li {
+  display: flex;
+  align-items: center;
+  height: 3lh;
+  gap: 2em;
+}
+footer li svg {
+  width: 2em;
+}
+
+.CTA {
+  background: var(--warm_gray);
+  padding: 50px;
+}
+.CTA h3 {
+  font-size: clamp(36px, 5vw, 64px);
+  text-transform: uppercase;
+  margin-bottom: 0.5lh;
+}
+
+/*  EFFECTS */
+/* image boxes to outline photos */
+.boxed {
+  display: block;
+  position: relative;
+}
+.boxed::before {
+  left: 15px;
+  top: -20px;
+  position: absolute;
+  content: "";
+  border: 2px solid;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+/* quick mobile hacks/tweaks… */
+@media screen and (max-width: 400px){
+
+  nav ul{
+    display: block;
+    margin-top: 1em;
+  }
+  h2{
+    overflow: hidden;
+  }
+  section{display:block; padding: 0 10px;}
+  .Banner h1 span{
+    display: none;
+  }
+  .Banner h1{
+    font-size: 60px;
+    margin: .5em 0;
+  }
+  footer{
+    display: block;
+  }
+}
+
+/* CSS for Innovation Page*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600&family=Righteous&display=swap");
+
+.debug {
+  outline: 3px solid red;
+  outline-offset: -4px;
+}
+
+/* simple reset rules */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ol,
+ul {
+  list-style-type: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/*  Global COLOR NAMES*/
+:root {
+  --black: #000;
+  --white: #fff;
+  --lite_text: #ccc;
+  --dark_text: #333;
+  --cool_gray: #e8e8e8;
+  --warm_gray: #f2f1f0;
+  --rose: #c79288;
+}
+
+/* color theme tools…  */
+.lite {
+  background: white;
+  color: var(--dark_text);
+}
+.lite .boxed::before {
+  color: var(--rose);
+}
+
+.dark {
+  background: black;
+  color: var(--lite_text);
+}
+.dark .boxed::before {
+  color: var(--white);
+}
+
+/* main "grid" layout */
+section {
+  position: relative;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: minmax(60px, auto) repeat(2, minmax(250px, 600px)) minmax(60px,auto);
+  /* same idea: |-|-----|-----|-| skinny edges and 2-column center, just more "responsive" for various screen sizes*/
+  align-items: center;
+}
+
+/* section grid tools…  */
+section .full {
+  grid-column: 2 / -2;
+}
+section .left {
+  grid-column: 2 / 3;
+}
+section .right {
+  grid-column: 3 / -2;
+}
+
+/* Overall Typography */
+body {
+  font-family: "Poppins";
+  font-weight: 400;
+}
+p {
+  margin-bottom: 1.5em;
+  font-size: clamp(12px, 2vw, 18px);
+  line-height: 1.5;
+}
+h2 {
+  opacity: 0.1;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.05em;
+  font-size: clamp(110px, 15vw, 250px);
+  line-height: 0.7;
+}
+h4 {
+  font-size: 32px;
+  font-weight: 600;
+}
+a {
+  text-decoration: none;
+  color: var(--dark_text);
+}
+
+/* links and buttons  */
+.btn {
+  padding: 1em 1.5em;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--white);
+  background-color: var(--rose);
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.15s;
+  user-select: none;
+}
+.btn::before {
+  left: 6px;
+  top: 6px;
+  position: absolute;
+  content: "";
+  border: 1px solid var(--rose);
+  height: 100%;
+  width: 100%;
+  transition: all 0.15s;
+  z-index: -1;
+}
+.btn:hover::before {
+  top: 0;
+  left: 0;
+}
+.btn:hover,
+.btn:focus {
+  color: var(--white);
+}
+.btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+.btn svg.arrow {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+a{
+  color: var(--rose);
+}
+a:hover{
+  color: var(--white);
+}
+
+/*  nav bar - flexbox for layout stuck to top of screen with position fixed! push the first section after the nav down so it's not covered by the menubar */
+nav,
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  background: black;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 99;
+}
+nav ul {
+  align-items: center;
+}
+nav a {
+  padding-left: 40px;
+  color: white;
+  font-size: 16px;
+  -webkit-transition: all 0.2s ease-in;
+}
+nav a:hover {
+  color: var(--rose);
+}
+nav + section {
+  margin-top: 80px;
+}
+
+/* DESIGN DETAILS - for each section */
+.Banner {
+  min-height: 50dvh;
+}
+.Banner img {
+  opacity: 0.6;
+}
+.Banner h1 {
+  position: relative;
+  color: var(--white);
+  font-size: 104px;
+  white-space: nowrap;
+  z-index: 1;
+}
+.Banner em {
+  display: block;
+  font-size: clamp(12px, 2vw, 18px);
+  margin-top: 2em;
+}
+.Banner .initialcap {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transform: translate(-35%, -35%);
+  font-family: "Poppins";
+  font-size: 339px;
+  font-weight: 400;
+  background: #fff
+    top center no-repeat;
+
+  background-size: contain;
+  background-position: center;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.4);
+}
+
+.masters{
+  margin-bottom:50px;
+}
+
+.Nuvention {
+  padding-top:25px;
+  padding-bottom:50px;
+}
+
+.product{
+  padding-top:25px;
+}
+
+.Knight{
+  padding-top:25px;
+}
+
+/* Contact bottom footer section and a "CTA" Call To Action card design */
+footer {
+  display: flex;
+  gap: 20%;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+footer ul {
+  margin-top: 2em;
+}
+footer li {
+  display: flex;
+  align-items: center;
+  height: 3lh;
+  gap: 2em;
+}
+footer li svg {
+  width: 2em;
+}
+
+.CTA {
+  background: var(--warm_gray);
+  padding: 50px;
+}
+.CTA h3 {
+  font-size: clamp(36px, 5vw, 64px);
+  text-transform: uppercase;
+  margin-bottom: 0.5lh;
+}
+
+/*  EFFECTS */
+/* image boxes to outline photos */
+.boxed {
+  display: block;
+  position: relative;
+}
+.boxed::before {
+  left: 15px;
+  top: -20px;
+  position: absolute;
+  content: "";
+  border: 2px solid;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+/* quick mobile hacks/tweaks… */
+@media screen and (max-width: 400px){
+
+  nav ul{
+    display: block;
+    margin-top: 1em;
+  }
+  h2{
+    overflow: hidden;
+  }
+  section{display:block; padding: 0 10px;}
+  .Banner h1 span{
+    display: none;
+  }
+  .Banner h1{
+    font-size: 60px;
+    margin: .5em 0;
+  }
+  footer{
+    display: block;
+  }
+}
+
+/* CSS for Resume Page*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600&family=Righteous&display=swap");
+
+.debug {
+  outline: 3px solid red;
+  outline-offset: -4px;
+}
+
+/* simple reset rules */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ol,
+ul {
+  list-style-type: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/*  Global COLOR NAMES*/
+:root {
+  --black: #000;
+  --white: #fff;
+  --lite_text: #ccc;
+  --dark_text: #333;
+  --cool_gray: #e8e8e8;
+  --warm_gray: #f2f1f0;
+  --rose: #c79288;
+}
+
+/* color theme tools…  */
+.lite {
+  background: white;
+  color: var(--dark_text);
+}
+.lite .boxed::before {
+  color: var(--rose);
+}
+
+.dark {
+  background: black;
+  color: var(--lite_text);
+}
+.dark .boxed::before {
+  color: var(--white);
+}
+
+/* main "grid" layout */
+section {
+  position: relative;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: minmax(60px, auto) repeat(2, minmax(250px, 600px)) minmax(60px,auto);
+  /* same idea: |-|-----|-----|-| skinny edges and 2-column center, just more "responsive" for various screen sizes*/
+  align-items: center;
+}
+
+/* section grid tools…  */
+section .full {
+  grid-column: 2 / -2;
+}
+section .left {
+  grid-column: 2 / 3;
+}
+section .right {
+  grid-column: 3 / -2;
+}
+
+/* Overall Typography */
+body {
+  font-family: "Poppins";
+  font-weight: 400;
+}
+p {
+  margin-bottom: 1.5em;
+  font-size: clamp(12px, 2vw, 18px);
+  line-height: 1.5;
+}
+h2 {
+  opacity: 0.1;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.05em;
+  font-size: clamp(110px, 15vw, 250px);
+  line-height: 0.7;
+}
+h4 {
+  font-size: 32px;
+  font-weight: 600;
+}
+a {
+  text-decoration: none;
+  color: var(--dark_text);
+}
+
+/* links and buttons  */
+.btn {
+  padding: 1em 1.5em;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--white);
+  background-color: var(--rose);
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.15s;
+  user-select: none;
+}
+.btn::before {
+  left: 6px;
+  top: 6px;
+  position: absolute;
+  content: "";
+  border: 1px solid var(--rose);
+  height: 100%;
+  width: 100%;
+  transition: all 0.15s;
+  z-index: -1;
+}
+.btn:hover::before {
+  top: 0;
+  left: 0;
+}
+.btn:hover,
+.btn:focus {
+  color: var(--white);
+}
+.btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+.btn svg.arrow {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+/*  nav bar - flexbox for layout stuck to top of screen with position fixed! push the first section after the nav down so it's not covered by the menubar */
+nav,
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  background: black;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 99;
+}
+nav ul {
+  align-items: center;
+}
+nav a {
+  padding-left: 40px;
+  color: white;
+  font-size: 16px;
+  -webkit-transition: all 0.2s ease-in;
+}
+nav a:hover {
+  color: var(--rose);
+}
+nav + section {
+  margin-top: 80px;
+}
+
+/* DESIGN DETAILS - for each section */
+.Banner {
+  min-height: 50dvh;
+}
+.Banner img {
+  opacity: 0.6;
+}
+.Banner h1 {
+  position: relative;
+  color: var(--white);
+  font-size: 104px;
+  white-space: nowrap;
+  z-index: 1;
+}
+.Banner em {
+  display: block;
+  font-size: clamp(12px, 2vw, 18px);
+  margin-top: 2em;
+}
+.Banner .initialcap {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transform: translate(-35%, -35%);
+  font-family: "Poppins";
+  font-size: 339px;
+  font-weight: 400;
+  background: #fff
+    top center no-repeat;
+
+  background-size: contain;
+  background-position: center;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.4);
+}
+
+/*Resume Embed*/
+.Resume{
+  height: 5vh;
+  width: 100%;
+  overflow: hidden;
+  padding-left:100px;
+}
+
+.heading{
+  color:white;
+  font-family: "Poppins", sans-serif;
+  font-size: 104px;
+  line-height: 1.1;
+  font-weight: 400;
+  font-style: normal;
+  position: relative;
+  user-select: none;
+}
+
+.heading-small{
+  color:white;
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  line-height: 1.1;
+  font-weight: 400;
+  font-style: normal;
+  position: relative;
+  user-select: none;
+   margin-top:0px;
+}
+
+
+.embed{
+  margin-top:100px;
+  display:flex;
+  justify-content:center;
+}
+
+
+/* Contact bottom footer section and a "CTA" Call To Action card design */
+footer {
+  display: flex;
+  gap: 20%;
+  margin-bottom: 100px;
+  margin-top: 100px;
 }
 footer ul {
   margin-top: 2em;
